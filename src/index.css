@@ -1,0 +1,17 @@
+@import url("@fontsource/roboto");
+
+@font-face {
+  font-family: "Get Schwifty";
+  src: url("./assets/fonts/get-schwifty/get-schwifty.woff2") format("woff2"),
+    url("./assets/fonts/get-schwifty/get-schwifty.woff") format("woff");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+}
