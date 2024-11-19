@@ -27,8 +27,12 @@
     "paths": {
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
+      "@hooks/*": ["hooks/*"],
+      "@icons/*": ["icons/*"],
       "@pages/*": ["pages/*"],
-      "@services/*": ["services/*"]
+      "@services/*": ["services/*"],
+      "@stores/*": ["stores/*"]
     }
   },
   "include": ["src"]

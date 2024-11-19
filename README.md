@@ -1,6 +1,25 @@
 # Apolo Web - Prueba Técnica
 
-¡Bienvenido! Este es el repositorio de la prueba técnica desarrollada para **Apolo Web**. La aplicación consume la API de _Rick and Morty_.
+[🔗 Ver el proyecto desplegado aquí](https://apoloweb-rickandmorty-pruebatecnica.netlify.app)
+
+¡Bienvenido! Este es el repositorio de la prueba técnica desarrollada para **Apolo Web**. La aplicación consume la API de _Rick and Morty_ para mostrar personajes con opciones de búsqueda y filtros.
+
+## Características
+
+- **Listado de personajes:**
+  - Muestra personajes de _Rick and Morty_ consumiendo su API.
+  - Filtros funcionales (nombre, especie, género, estado).
+  - Paginación para mostrar grandes volúmenes de datos.
+
+## Tecnologías utilizadas
+
+- **Frontend:**
+  - React
+  - Tailwind CSS
+- **Consumo de API:**
+  - [Rick and Morty](https://rickandmortyapi.com)
+- **Gestión de estado:**
+  - Zustand
 
 ## Requisitos previos
 
@@ -34,6 +53,31 @@ npm run dev
 4. **Accede a la aplicación:**
 
 Abre http://localhost:5173 en tu navegador.
+
+## Uso
+
+### 1. Personajes
+
+- Explora los personajes de _Rick and Morty_ con paginación.
+- Filtra por nombre, especie, género o estado.
+
+## Estructura del proyecto
+
+```text
+ApoloWeb-RickAndMorty-PruebaTecnica/
+|-- src/
+|   |-- assets/         # Recuros estáticos
+|   |-- components/     # Componentes reutilizables
+|   |-- constants/      # Constantes de la aplicación
+|   |-- hooks/          # Hooks personalizados
+|   |-- icons/          # Íconos de la aplicación
+|   |-- pages/          # Páginas principales
+|   |-- services/       # Lógica para consumir la API
+|   |-- stores/         # Estados de la aplicación
+|-- public/             # Recursos públicos
+|-- package.json        # Configuración del proyecto
+|-- README.md           # Documentación
+```
 
 ## Autor
 

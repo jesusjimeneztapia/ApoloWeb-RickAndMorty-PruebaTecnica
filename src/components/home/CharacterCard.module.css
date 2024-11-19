@@ -1,0 +1,13 @@
+.card {
+  animation: fade-in 500ms ease both;
+  animation-delay: calc(var(--order-card) * 150ms);
+}
+
+@keyframes fade-in {
+  0% {
+    @apply opacity-0;
+  }
+  100% {
+    @apply opacity-100;
+  }
+}
