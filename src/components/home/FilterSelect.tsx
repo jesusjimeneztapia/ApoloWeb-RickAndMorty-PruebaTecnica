@@ -22,7 +22,7 @@ const FilterSelect: FC<FilterSelectProps> = ({
     <select
       id={id}
       name={name}
-      className="relative w-full h-14 py-4 px-4 border rounded-lg appearance-none bg-chevron-down bg-no-repeat bg-[calc(100%-12px)]"
+      className="relative bg-white w-full h-14 py-4 px-4 border rounded-lg appearance-none bg-chevron-down bg-no-repeat bg-[calc(100%-12px)]"
       onChange={handleChange}
       value={value}
     >

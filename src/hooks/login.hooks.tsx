@@ -1,4 +1,5 @@
 import Toast from "@components/shared/Toast";
+import { TOAST_OPTIONS } from "@constants/toast";
 import {
   InvalidPasswordError,
   UserAlreadyExistsError,
@@ -11,7 +12,7 @@ import { useAuthStore } from "@stores/auth.store";
 import Joi from "joi";
 import { ChangeEvent, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import toast, { ToastOptions } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 const schema = Joi.object({
@@ -64,27 +65,25 @@ export function useLogin() {
 
   const handleSubmit = onSubmit(async ({ email, password }, event) => {
     event?.preventDefault();
-    const options: ToastOptions = {
-      position: "bottom-right",
-    };
+
     try {
       if (isRegister) {
         await register({ email, password });
         return toast.custom(
           <Toast message={`Bienvenido!, ${email}`} color="blue" />,
-          options
+          TOAST_OPTIONS
         );
       }
       await login({ email, password });
       toast.custom(
         <Toast message={`Hola de nuevo!, ${email}`} color="green" />,
-        options
+        TOAST_OPTIONS
       );
     } catch (error) {
       let message = "Ocurrió algún error, intente más tarde";
       if (error instanceof UserAlreadyExistsError) {
         message = "El usuario ya existe";
-        toast.custom(<Toast message={message} icon="error" />, options);
+        toast.custom(<Toast message={message} icon="error" />, TOAST_OPTIONS);
         return form.setError("root", { message });
       }
       if (
@@ -92,10 +91,10 @@ export function useLogin() {
         error instanceof InvalidPasswordError
       ) {
         message = "Credenciales inválidas";
-        toast.custom(<Toast message={message} icon="error" />, options);
+        toast.custom(<Toast message={message} icon="error" />, TOAST_OPTIONS);
         return form.setError("root", { message });
       }
-      toast.custom(<Toast message={message} icon="error" />, options);
+      toast.custom(<Toast message={message} icon="error" />, TOAST_OPTIONS);
       return form.setError("root", {
         message,
       });

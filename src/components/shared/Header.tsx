@@ -3,13 +3,18 @@ import LogOutIcon from "@icons/LogOutIcon";
 import MenuIcon from "@icons/MenuIcon";
 import XIcon from "@icons/XIcon";
 import { useAuthStore } from "@stores/auth.store";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
+  const location = useLocation();
   const token = useAuthStore((state) => state.token);
   const logOut = useAuthStore((state) => state.logOut);
   const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    setShowMenu(false);
+  }, [location]);
 
   const toggleOpenMenu = () => {
     setShowMenu((show) => !show);
@@ -17,7 +22,6 @@ export default function Header() {
 
   const handleLogOut = async () => {
     await logOut();
-    toggleOpenMenu();
   };
 
   return (
@@ -46,12 +50,27 @@ export default function Header() {
           >
             <ul className="container mx-auto px-6 font-karla text-2xl font-bold flex flex-col items-center gap-y-12 md:px-0 md:text-lg md:flex-row md:items-center md:gap-x-6">
               <li>
-                <Link className="text-ricks-hair-blue" to="/">
+                <Link
+                  className={`${
+                    location.pathname === "/"
+                      ? "text-ricks-hair-blue"
+                      : "hover:text-sombre-pink"
+                  }`}
+                  to="/"
+                >
                   Personajes
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-sombre-pink" to="#!">
+                <Link
+                  className={`${
+                    location.pathname === "/personaje" &&
+                    !location.search.includes("id=")
+                      ? "text-ricks-hair-blue"
+                      : "hover:text-sombre-pink"
+                  }`}
+                  to="/personaje"
+                >
                   Crear Personaje
                 </Link>
               </li>

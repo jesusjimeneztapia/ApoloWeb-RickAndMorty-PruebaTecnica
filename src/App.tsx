@@ -1,4 +1,5 @@
 import AppLayout from "@layouts/AppLayout";
+import EditCreate from "@pages/EditCreate";
 import HomePage from "@pages/Home";
 import Login from "@pages/Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -18,6 +19,14 @@ const router = createBrowserRouter(
       element: (
         <AppLayout>
           <Login />
+        </AppLayout>
+      ),
+    },
+    {
+      path: "/personaje",
+      element: (
+        <AppLayout protected>
+          <EditCreate />
         </AppLayout>
       ),
     },

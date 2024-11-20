@@ -21,6 +21,7 @@
     "react-hook-form": "7.53.2",
     "react-hot-toast": "2.4.1",
     "react-router-dom": "6.28.0",
+    "uuid": "11.0.3",
     "zustand": "5.0.1"
   },
   "devDependencies": {

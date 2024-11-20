@@ -1,6 +1,19 @@
 import { QUERY_FILTERS } from "@constants/queryFilters";
-import { getCharacters, getCharactersProps } from "@services/characterService";
-import { Character, RequestInfo } from "types";
+import {
+  createCharacter,
+  CreatedCharacter,
+  getCharacterById,
+  getCharacters,
+  getCharactersProps,
+  getCreatedCharacters,
+  updateCharacter,
+} from "@services/characterService";
+import {
+  Character,
+  CharacterDto,
+  CreateCharacterDto,
+  RequestInfo,
+} from "types";
 import { create } from "zustand";
 
 interface useCharactersInterface {
@@ -53,3 +66,53 @@ export const useCharactersStore = create<useCharactersInterface>(
     },
   })
 );
+
+interface useACharacterStoreInterface {
+  loading: boolean;
+  character: CharacterDto | null;
+  findCharacter: (id: number | string) => Promise<void>;
+  createCharacter: (character: CreateCharacterDto) => Promise<void>;
+  updateCharacter: (character: CreateCharacterDto) => Promise<void>;
+  reset: () => Promise<void>;
+}
+
+export const useACharacterStore = create<useACharacterStoreInterface>(
+  (set, get) => ({
+    loading: true,
+    character: null,
+    findCharacter: async (id) => {
+      set(() => ({ loading: true }));
+      const character = (await getCharacterById(id)) as never;
+      set(() => ({ character, loading: false }));
+    },
+    createCharacter: async (character) => {
+      await createCharacter(character);
+    },
+    updateCharacter: async (characterDto) => {
+      const { character } = get();
+      await updateCharacter(character?.id as never, characterDto);
+    },
+    reset: async () => {
+      set(() => ({ loading: true }));
+      await Promise.resolve(set(() => ({ character: null })));
+      set(() => ({ loading: false }));
+    },
+  })
+);
+
+interface useCreatedCharactersStoreInterface {
+  loading: boolean;
+  characters: CreatedCharacter[] | null;
+  updateCharacters: () => Promise<void>;
+}
+
+export const useCreatedCharactersStore =
+  create<useCreatedCharactersStoreInterface>((set) => ({
+    loading: true,
+    characters: null,
+    updateCharacters: async () => {
+      set(() => ({ loading: true }));
+      const characters = await getCreatedCharacters();
+      set(() => ({ characters, loading: false }));
+    },
+  }));

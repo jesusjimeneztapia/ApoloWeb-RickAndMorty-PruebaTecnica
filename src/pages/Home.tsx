@@ -3,6 +3,7 @@ import AdvancedFiltersButton from "@components/home/AdvancedFiltersButton";
 import CharactersList from "@components/home/CharactersList";
 import FilterByName from "@components/home/FilterByName";
 import FilterSelect from "@components/home/FilterSelect";
+import RecentlyAdded from "@components/home/RecentlyAdded";
 
 const FILTERS = [
   {
@@ -58,25 +59,31 @@ export default function Home() {
           alt="Rick y Morty"
         />
       </picture>
-      <ul className="grid gap-y-4 md:grid-cols-3 md:gap-x-6 md:gap-y-3 lg:gap-x-4 xl:grid-cols-4 xl:gap-x-5">
-        <li className="relative group md:col-span-3 xl:col-span-1">
-          <FilterByName />
-        </li>
-        {FILTERS.map(({ id, name, placeholder, options, query }) => (
-          <li key={id} className="hidden group md:inline-block">
-            <FilterSelect
-              id={id}
-              name={name}
-              placeholder={placeholder}
-              options={options}
-              query={query}
-            />
+      <RecentlyAdded />
+      <section>
+        <h2 className="text-xl font-karla font-bold text-slimy-yellow mb-2 uppercase xl:mt-7">
+          Personajes de la API
+        </h2>
+        <ul className="grid gap-y-4 md:grid-cols-3 md:gap-x-6 md:gap-y-3 lg:gap-x-4 xl:grid-cols-4 xl:gap-x-5">
+          <li className="relative group md:col-span-3 xl:col-span-1">
+            <FilterByName />
           </li>
-        ))}
-        <li className="md:hidden">
-          <AdvancedFiltersButton filters={FILTERS} />
-        </li>
-      </ul>
+          {FILTERS.map(({ id, name, placeholder, options, query }) => (
+            <li key={id} className="hidden group md:inline-block">
+              <FilterSelect
+                id={id}
+                name={name}
+                placeholder={placeholder}
+                options={options}
+                query={query}
+              />
+            </li>
+          ))}
+          <li className="md:hidden">
+            <AdvancedFiltersButton filters={FILTERS} />
+          </li>
+        </ul>
+      </section>
       <CharactersList />
     </>
   );

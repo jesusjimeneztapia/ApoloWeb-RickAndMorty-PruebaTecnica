@@ -26,10 +26,10 @@ const AdvancedFiltersButton: FC<AdvancedFiltersButtonProps> = ({ filters }) => {
       {showFilters && (
         <>
           <div
-            className="absolute top-0 left-0 z-50 w-screen h-screen bg-intergalactic-black/75"
+            className="fixed top-0 left-0 z-50 w-screen h-screen bg-intergalactic-black/75"
             onClick={toggleShowFilters}
           />
-          <div className="absolute container top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex justify-center items-center px-6 py-1.5">
+          <div className="fixed container top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex justify-center items-center px-6 py-1.5">
             <section className="container bg-white p-4 rounded shadow">
               <header className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-semibold">Filtros</h3>

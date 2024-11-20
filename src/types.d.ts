@@ -48,3 +48,10 @@ export interface Location {
   name: string;
   url: string;
 }
+
+export interface CharacterDto
+  extends Pick<Character, "id" | "name" | "species" | "gender" | "status"> {
+  image?: string;
+}
+
+export type CreateCharacterDto = Omit<CharacterDto, "id">;
