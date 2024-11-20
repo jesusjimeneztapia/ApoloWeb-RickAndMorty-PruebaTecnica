@@ -28,8 +28,10 @@
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@constants/*": ["constants/*"],
+      "@errors/*": ["errors/*"],
       "@hooks/*": ["hooks/*"],
       "@icons/*": ["icons/*"],
+      "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
       "@services/*": ["services/*"],
       "@stores/*": ["stores/*"]

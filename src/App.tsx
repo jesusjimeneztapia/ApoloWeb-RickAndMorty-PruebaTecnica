@@ -1,11 +1,25 @@
+import AppLayout from "@layouts/AppLayout";
 import HomePage from "@pages/Home";
+import Login from "@pages/Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <HomePage />,
+      element: (
+        <AppLayout protected>
+          <HomePage />
+        </AppLayout>
+      ),
+    },
+    {
+      path: "/autenticacion",
+      element: (
+        <AppLayout>
+          <Login />
+        </AppLayout>
+      ),
     },
   ],
   {

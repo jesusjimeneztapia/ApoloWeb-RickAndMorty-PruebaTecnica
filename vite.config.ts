@@ -6,14 +6,19 @@ export default defineConfig({
   resolve: {
     alias: {
       "@assets": "/src/assets",
-      "@icons": "/src/icons",
       "@components": "/src/components",
       "@constants": "/src/constants",
+      "@errors": "/src/errors",
       "@hooks": "/src/hooks",
+      "@icons": "/src/icons",
+      "@layouts": "/src/layouts",
       "@pages": "/src/pages",
       "@services": "/src/services",
       "@stores": "/src/stores",
     },
   },
   plugins: [react()],
+  build: {
+    target: "esnext",
+  },
 });

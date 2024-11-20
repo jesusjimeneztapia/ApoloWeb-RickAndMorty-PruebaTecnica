@@ -2,10 +2,12 @@
 
 [🔗 Ver el proyecto desplegado aquí](https://apoloweb-rickandmorty-pruebatecnica.netlify.app)
 
-¡Bienvenido! Este es el repositorio de la prueba técnica desarrollada para **Apolo Web**. La aplicación consume la API de _Rick and Morty_ para mostrar personajes con opciones de búsqueda y filtros.
+¡Bienvenido! Este es el repositorio de la prueba técnica desarrollada para **Apolo Web**. La aplicación consume la API de _Rick and Morty_ para mostrar personajes con opciones de búsqueda y filtros, incluye autenticación (inicio de sesión y registro).
 
 ## Características
 
+- **Autenticación:**
+  - Registro e inicio de sesión con formularios responsivos.
 - **Listado de personajes:**
   - Muestra personajes de _Rick and Morty_ consumiendo su API.
   - Filtros funcionales (nombre, especie, género, estado).
@@ -20,6 +22,10 @@
   - [Rick and Morty](https://rickandmortyapi.com)
 - **Gestión de estado:**
   - Zustand
+- **Formularios:**
+  - React Hook Form
+  - Joi, para validaciones
+  - [Mensajes de Joi en español](https://www.npmjs.com/package/@joi-tools/translator)
 
 ## Requisitos previos
 
@@ -56,7 +62,11 @@ Abre http://localhost:5173 en tu navegador.
 
 ## Uso
 
-### 1. Personajes
+### 1. Autenticación
+
+- Regístrate o inicia sesión con credenciales básicas para acceder a la aplicación.
+
+### 2. Personajes
 
 - Explora los personajes de _Rick and Morty_ con paginación.
 - Filtra por nombre, especie, género o estado.
@@ -69,8 +79,10 @@ ApoloWeb-RickAndMorty-PruebaTecnica/
 |   |-- assets/         # Recuros estáticos
 |   |-- components/     # Componentes reutilizables
 |   |-- constants/      # Constantes de la aplicación
+|   |-- errors/         # Errores personalizados
 |   |-- hooks/          # Hooks personalizados
 |   |-- icons/          # Íconos de la aplicación
+|   |-- layouts/        # Layout de la aplicación
 |   |-- pages/          # Páginas principales
 |   |-- services/       # Lógica para consumir la API
 |   |-- stores/         # Estados de la aplicación
@@ -78,6 +90,11 @@ ApoloWeb-RickAndMorty-PruebaTecnica/
 |-- package.json        # Configuración del proyecto
 |-- README.md           # Documentación
 ```
+
+## Mejoras futuras
+
+- Implementar autenticación con token JWT.
+- Mejorar el diseño visual con animaciones más avanzadas.
 
 ## Autor
 

@@ -26,7 +26,7 @@ const FilterSelect: FC<FilterSelectProps> = ({
       onChange={handleChange}
       value={value}
     >
-      <option value="" selected>
+      <option className="text-intergalactic-black/60" value="">
         {placeholder}
       </option>
       {options.map(({ value, label }) => (
